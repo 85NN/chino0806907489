@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แฟ้มสะสมผลงาน | My Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Prompt', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: #ffffff;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 600;
+            color: #4f46e5;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 400;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #4f46e5;
+        }
+
+        /* Main Content Container */
+        section {
+            padding: 100px 20px 80px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* Hero Section */
+        #home {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 90vh;
+        }
+
+        .hero-text h1 {
+            font-size: 48px;
+            color: #1e1b4b;
+            margin-bottom: 10px;
+        }
+
+        .hero-text h2 {
+            font-size: 24px;
+            color: #4f46e5;
+            margin-bottom: 20px;
+        }
+
+        .hero-text p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 30px;
+            max-width: 500px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #4f46e5;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #4338ca;
+        }
+
+        .hero-img img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 8px solid white;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        /* Section Headings */
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 40px;
+            position: relative;
+            color: #1e1b4b;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background-color: #4f46e5;
+            margin: 10px auto 0 auto;
+            border-radius: 2px;
+        }
+
+        /* Profile & Skills */
+        .about-content {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .skill-tag {
+            background-color: #e0e7ff;
+            color: #4f46e5;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* Projects Section */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-img {
+            width: 100%;
+            height: 200px;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+        }
+
+        .project-info {
+            padding: 20px;
+        }
+
+        .project-info h3 {
+            margin-bottom: 10px;
+            color: #1e1b4b;
+        }
+
+        .project-info p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* Contact Section */
+        #contact .about-content {
+            text-align: center;
+        }
+
+        .contact-info {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1e1b4b;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            #home {
+                flex-direction: column-reverse;
+                text-align: center;
+                justify-content: center;
+                padding-top: 140px;
+            }
+            .hero-text p {
+                margin: 0 auto 30px auto;
+            }
+            .hero-img img {
+                width: 200px;
+                height: 200px;
+                margin-bottom: 30px;
+            }
+            .nav-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <div class="logo">MyPortfolio</div>
+            <ul class="nav-links">
+                <li><a href="#home">หน้าแรก</a></li>
+                <li><a href="#about">ประวัติส่วนตัว</a></li>
+                <li><a href="#projects">ผลงาน</a></li>
+                <li><a href="#contact">ติดต่อ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="home">
+        <div class="hero-text">
+            <h1>สวัสดีครับ/ค่ะ ยินดีต้อนรับ</h1>
+            <h2>ฉันคือ [ใส่ชื่อ-นามสกุลของคุณ]</h2>
+            <p>ยินดีต้อนรับเข้าสู่เว็บไซต์แฟ้มสะสมผลงานออนไลน์ของฉัน ที่นี่รวบรวมข้อมูลประวัติ ทักษะความสามารถ และโปรเจกต์ต่างๆ ที่ฉันได้ตั้งใจทำขึ้นมาครับ/ค่ะ</p>
+            <a href="#projects" class="btn">ดูผลงานของฉัน</a>
+        </div>
+        <div class="hero-img">
+            <img src="https://via.placeholder.com/300" alt="รูปภาพโปรไฟล์">
+        </div>
+    </section>
+
+    <section id="about">
+        <h2 class="section-title">ประวัติส่วนตัว</h2>
+        <div class="about-content">
+            <p><strong>ชื่อ:</strong> [ใส่ชื่อ-นามสกุล] (ชื่อเล่น: [ชื่อเล่น])</p>
+            <p><strong>กำลังศึกษาอยู่ชั้น:</strong> มัธยมศึกษาปีที่ [ใส่ชั้นปี] โรงเรียน [ใส่ชื่อโรงเรียน]</p>
+            <p style="margin-top: 15px;"><strong>ความสนใจ:</strong> มีความสนใจในด้านการเขียนโปรแกรม การพัฒนาเว็บไซต์ และเทคโนโลยีใหม่ๆ (ปรับเปลี่ยนข้อความได้ตามใจชอบ)</p>
+            
+            <h3 style="margin-top: 30px; color: #1e1b4b;">ทักษะและความสามารถ (Skills)</h3>
+            <div class="skills-grid">
+                <div class="skill-tag">HTML / CSS</div>
+                <div class="skill-tag">JavaScript</div>
+                <div class="skill-tag">GitHub</div>
+                <div class="skill-tag">Design (Canva / Photoshop)</div>
+                <div class="skill-tag">Microsoft Office</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2 class="section-title">ผลงานของฉัน</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <div class="project-img">ภาพผลงาน 1</div>
+                <div class="project-info">
+                    <h3>โปรเจกต์ชิ้นที่ 1</h3>
+                    <p>อธิบายสั้นๆ เกี่ยวกับผลงานชิ้นนี้ เช่น เป็นเว็บไซต์ที่พัฒนาขึ้นในรายวิชาเทคโนโลยี หรืองานประกวดต่างๆ</p>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-img">ภาพผลงาน 2</div>
+                <div class="project-info">
+                    <h3>โปรเจกต์ชิ้นที่ 2</h3>
+                    <p>อธิบายสั้นๆ เกี่ยวกับผลงานชิ้นนี้ เช่น โครงงานวิทยาศาสตร์ หรืองานกราฟิกที่เคยออกแบบ</p>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-img">ภาพผลงาน 3</div>
+                <div class="project-info">
+                    <h3>โปรเจกต์ชิ้นที่ 3</h3>
+                    <p>อธิบายสั้นๆ เกี่ยวกับผลงานชิ้นนี้ เช่น กิจกรรมจิตอาสา หรือเกียรติบัตรที่ได้รับ</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title">ช่องทางการติดต่อ</h2>
+        <div class="about-content">
+            <p>หากสนใจร่วมงาน หรือมีข้อสงสัยเพิ่มเติม สามารถติดต่อฉันได้ตามช่องทางด้านล่างนี้เลยครับ/ค่ะ</p>
+            <div class="contact-info">
+                <p>📧 <strong>Email:</strong> your.email@example.com</p>
+                <p>📞 <strong>เบอร์โทรศัพท์:</strong> 09X-XXXXXXX</p>
+                <p>🌐 <strong>GitHub:</strong> github.com/yourusername</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 [ชื่อของคุณ]. All Rights Reserved. Created with GitHub Pages.</p>
+    </footer>
+
+</body>
+</html>
